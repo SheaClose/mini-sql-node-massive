@@ -19,7 +19,7 @@ In this step, we'll install massive into our project and require it in `index.js
 
 * Run `npm install --save massive dotenv`
 * Require `massive` underneath `cors`.
-* Require and configure dotenv below massive. 
+* Require and configure dotenv below massive.
 
 ### Solution
 
@@ -42,7 +42,7 @@ const port = process.env.PORT || 3000
 app.listen(port, () => { console.log(`Server listening on port ${port}`) } );
 ```
 
-</details> 
+</details>
 
 ## Step 2
 
@@ -56,9 +56,9 @@ In this step, we'll connect SQLTabs to our Heroku databse. We'll then add a new 
 * Connect to your Heroku database with SQLTabs by using the URI connection string.
 * Create the following `airplanes` table:
   * <details>
-    
+
     <summary> <code> CREATE TABLE airplanes </code> </summary>
-    
+
     ```sql
     CREATE TABLE airplanes (
       PlaneID SERIAL PRIMARY KEY NOT NULL,
@@ -66,7 +66,7 @@ In this step, we'll connect SQLTabs to our Heroku databse. We'll then add a new 
       PassengerCount integer NOT NULL
     );
     ```
-    
+
     </details>
 
 ## Step 3
@@ -190,7 +190,7 @@ massive( process.env.CONNECTION_STRING ).then( dbInstance => {
   // dbInstance.new_planes()
   //   .then( planes => console.log( planes ) )
   //   .catch( err => console.log( err ) );
-  
+
   dbInstance.get_planes()
     .then( planes => console.log( planes ) )
     .catch( err => console.log( err ) );
@@ -238,7 +238,7 @@ module.exports = {
 
     dbInstance.get_planes()
       .then(planes => { res.status(200).send(planes); })
-      .catch( err => { 
+      .catch( err => {
         console.log(err);
         res.status(500).send(err);
       });
@@ -321,7 +321,7 @@ module.exports = {
 
     dbInstance.get_planes([25])
       .then(planes => { res.status(200).send(planes); })
-      .catch( err => { 
+      .catch( err => {
         console.log(err);
         res.status(500).send(err);
       });
