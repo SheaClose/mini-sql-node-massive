@@ -6,6 +6,7 @@ const massive = require('massive');
 const ctrl = require('./controller');
 require('dotenv').config();
 const CONNECTION_STRING = process.env.CONNECTION_STRING;
+const port = process.env.PORT || 3000;
 
 massive(CONNECTION_STRING)
   .then(db => {
@@ -20,7 +21,6 @@ app.use(cors());
 
 app.get('/planes', ctrl.getPlanes);
 
-const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
